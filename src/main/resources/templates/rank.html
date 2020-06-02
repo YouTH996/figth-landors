@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>斗地主 排行榜</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta name="author" content=""/>
+        <meta name="twitter:title" content=""/>
+        <meta name="twitter:image" content=""/>
+        <meta name="twitter:url" content=""/>
+        <meta name="twitter:card" content=""/>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+        <!-- Animate.css -->
+        <link rel="stylesheet" th:href="@{/css/other/animate.css}">
+        <!-- Icomoon Icon Fonts-->
+        <link rel="stylesheet" th:href="@{/css/other/icomoon.css}">
+        <!-- Themify Icons-->
+        <link rel="stylesheet" th:href="@{/css/other/themify-icons.css}">
+        <!-- Bootstrap  -->
+        <link rel="stylesheet" th:href="@{/css/other/bootstrap.css}">
+        <link rel="stylesheet" th:href="@{/css/other/bootstrap-select.min.css}"/>
+        <!-- Magnific Popup -->
+        <link rel="stylesheet" th:href="@{/css/other/magnific-popup.css}">
+
+        <!-- Owl Carousel  -->
+        <link rel="stylesheet" th:href="@{/css/other/owl.carousel.min.css}">
+        <link rel="stylesheet" th:href="@{/css/other/owl.theme.default.min.css}">
+
+        <!-- Theme style  -->
+        <link rel="stylesheet" th:href="@{/css/other/style.css}">
+
+        <!-- Modernizr JS -->
+        <script th:src="@{/js/other/modernizr-2.6.2.min.js}"></script>
+        <!-- FOR IE9 below -->
+        <!--[if lt IE 9]>
+        <![endif]-->
+        <!-- jQuery -->
+        <script th:src="@{/js/other/jquery.min.js}"></script>
+        <!-- jQuery Easing -->
+        <!--<script th:src="@{/js/other/jquery.easing.1.3.js}"></script>-->
+        <!-- Bootstrap -->
+        <script th:src="@{/js/other/bootstrap.min.js}"></script>
+        <!--<script type="text/javascript" th:src="@{/js/other/bootstrap-select.min.js}"></script>-->
+        <!-- Waypoints -->
+        <script th:src="@{/js/other/jquery.waypoints.min.js}"></script>
+        <!-- Carousel -->
+        <script th:src="@{/js/other/owl.carousel.min.js}"></script>
+        <!-- countTo -->
+        <script th:src="@{/js/other/jquery.countTo.js}"></script>
+        <!-- Magnific Popup -->
+        <script th:src="@{/js/other/jquery.magnific-popup.min.js}"></script>
+        <script th:src="@{/js/other/magnific-popup-options.js}"></script>
+        <!-- Main -->
+        <script th:src="@{/js/other/main.js}"></script>
+        <script th:src="@{/js/other/vue.js}"></script>
+        <style>
+            #tab:hover {
+                background: #666;
+                color: #FAFAFA;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            html,
+            body {
+                height: 100%;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background: #666;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="gtco-loader"></div>
+
+        <div id="page">
+            <div class="page-inner">
+                <nav class="gtco-nav" role="navigation">
+                    <div class="gtco-container">
+
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-12">
+                                <div id="gtco-logo">
+                                    <a href="/start">Home <em>.</em></a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+
+            <div class="gtco-container">
+                <div class="row">
+                    <div class="col-md-12 col-md-offset-0 text-left">
+                        <div class="row row-mt-12em">
+                            <div class="col-md-9 col-md-push-1 animate-box" style="margin-top: 4em;"
+                                 data-animate-effect="fadeInRight">
+                                <table class="table table-bordered table-hover" style="color: #F3F3F3;">
+                                    <caption class="h3 text-center">斗地主排行榜</caption>
+                                    <tr class="text-center" id="tab" style="background: rgba(0, 0, 0, 0.5);">
+                                        <th class="text-center">账号</th>
+                                        <th class="text-center">呢称</th>
+                                        <th class="text-center">性别</th>
+                                        <th class="text-center">分数</th>
+                                    </tr>
+                                    <tr th:each="userinfo:${page.records}">
+                                        <td th:text="${userinfo.username}"></td>
+                                        <td th:text="${userinfo.nickname}"></td>
+                                        <td th:switch="${userinfo.sex}">
+                                            <span th:case="0">男</span>
+                                            <span th:case="1">女</span>
+                                        </td>
+                                        <td th:text="${userinfo.score}"></td>
+                                    </tr>
+                                    <td colspan="4" >
+                                        <ul class="pagination">
+                                            <li>
+                                                <a th:href="@{/rank/(pageNo=(${page.current}-1))}"
+                                                   aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a th:href="@{/rank/(pageNo=1)}">1</a></li>
+                                            <li><a th:href="@{/rank/(pageNo=2)}">2</a></li>
+                                            <li><a th:href="@{/rank/(pageNo=3)}">3</a></li>
+                                            <li><a th:href="@{/rank/(pageNo=4)}">4</a></li>
+                                            <li><a th:href="@{/rank/(pageNo=5)}">5</a></li>
+                                            <li>
+                                                <a href="#" onclick="rank([[${signinIPage.current}]]-1)"
+                                                   aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a th:href="@{/rank/(pageNo=(${page.pages}))}">最后一页</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

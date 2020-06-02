@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>斗地主 登录页</title>
+        <link rel="stylesheet" href="css/login.css">
+        <link href="lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="disk/slidercaptcha.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="login">
+                <h1>登录</h1>
+                <form  id="loginFrm">
+                    <p>
+                        <input type="text" placeholder="用户名" autofocus name="username"><i class="user"></i></p>
+                    <p>
+                        <input type="password" placeholder="请输入登录密码" name="password"> <i class="password"></i></p>
+
+                    <input type="button" value="登录" id="submit" onclick="login()"></form>
+
+            </div>
+            <div class="container-fluid" style="display: none" id="slidercaptcha">
+                <div class="form-row">
+                    <div class="col-12">
+                        <div class="slidercaptcha card">
+                            <div class="card-header">
+                                <span>请完成安全验证!</span>
+                            </div>
+                            <div class="card-body">
+                                <div id="captcha"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reg">
+                <p>注册通道</p> <a href="/register">注册<i class="right"></i></a></div>
+        </div>
+
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="disk/longbow.slidercaptcha.js"></script>
+        <script>
+            var $captcha = $('#captcha').sliderCaptcha({
+                repeatIcon: 'fa fa-redo',
+                setSrc: function () {
+                    return 'http://imgs.sdgxgz.com/images/Pic' + Math.round(Math.random() * 136) + '.jpg';
+                },
+                onSuccess: function () {  //成功事件
+                    $.post({
+                        url: '/login',
+                        data: $("#loginFrm").serialize(),
+                        success: function (result) {
+                            if (result == "start") {
+                                window.location.href = "/start";
+                            }else{
+                                alert(result);
+                            }
+                        }
+                    });
+
+                }
+            });
+        </script>
+        <script>
+            function login() {
+                $("#slidercaptcha").show();
+
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>斗地主 注册页</title>
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/other/bootstrap.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="login">
+                <h1>注册</h1>
+                <form id="registerFrm">
+                    <p>
+                        <input type="text" placeholder="用户名" autofocus name="username" id="username"><i
+                            class="user"></i></p>
+                    <p>
+                        <input type="text" placeholder="用户昵称" autofocus name="nickname" id="nickname"><i
+                            class="user"></i></p>
+                    <p>
+                        <span>性别：</span>
+                        <input type="radio" name="sex" value="男" onselect="true" style="width: 10%">男
+                        <input type="radio" name="sex" value="女" style="width: 10%">女
+                    </p>
+                    <p>
+                        <input type="password" placeholder="请输入登录密码" name="password" id="password"> <i
+                            class="password"></i></p>
+                    <p>
+                        <input type="password" placeholder="重复用户名密码" name="password2" id="password2"> <i
+                            class="password"></i></p>
+                    <input type="button" value="注册" onclick="register()"></form>
+            </div>
+            <div class="reg">
+                <p>登录通道</p> <a href="/">登录<i class="right"></i></a></div>
+        </div>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script>
+            $('input:radio:first').attr('checked', 'checked');
+        </script>
+        <script>
+            function register() {
+                var username = $("#username").val();
+                var nickname = $("#nickname").val();
+                var password = $("#password").val();
+                var password2 = $("#password2").val();
+                if (username == '' || nickname == '' || password == '' || password2 == '') {
+                    alert("注册信息不能为空");
+                } else {
+                    if (password != password2) {
+                        alert("两次密码不一致");
+                    } else {
+                        $.post({
+                            url: '/registerUser',
+                            data: $("#registerFrm").serialize(),
+                            success: function (result) {
+                                alert(result);
+                            }
+                        })
+                    }
+                }
+            }
+        </script>
+    </body>
+
+</html>

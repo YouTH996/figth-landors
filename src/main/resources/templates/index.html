@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link href="favicon.ico" rel="shortcut icon">
+        <link rel="shortcut icon" href="#" />
+        <script type="text/javascript" src="/js/jquery-3.2.1.js"></script>
+        <link rel="stylesheet" href="css/other/bootstrap.min.css">
+        <link rel="stylesheet" href="css/index.css" />
+        <EMBED src="/bgm/bgm.mp3"autostart="true" loop="true" hidden="true">
+    </head>
+    <body>
+        <input type="hidden" id="username" th:value="${session.user.username}">
+        <div id="hidebg"></div>
+        <div id="hidebox"></div>
+        <div id="container">
+            <div id="Landlord0"></div>
+            <div id="Landlord1"></div>
+            <div id="Landlord2"></div>
+            <div id="top"></div>
+            <div id="right"></div>
+            <div id="left"></div>
+            <div id="bottom"></div>
+            <div id="center">
+                <div class="desktop">
+                    <div id="desktop-center"></div><!-- 定时器  -->
+                    <div id="center-left"></div>
+                    <div id="center-buttom"></div>
+                    <div id="center-right"></div>
+                </div>
+                <button class="btn btn-default" id="yes" onclick="robLandlord('1')">叫地主</button>
+                <button class="btn btn-default" id="no" onclick="robLandlord('0')">不叫</button>
+
+                <button class="btn btn-default" style="display: none;" name="game" onclick="pushpocker('0')">不出</button>
+                <button class="btn btn-default" style="display: none;" name="game" onclick="pushpocker('1')">出牌</button>
+                <button class="btn btn-default" style="display: none;" name="game" onclick="alert('游戏暂停');">暂停</button>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function Transmission(){
+                var name=$("#username").val();
+                return name;
+            }
+            function change(){
+                var name=$("#username").val();
+                window.location.href="/index?account="+name;
+            }
+        </script>
+        <script type="text/javascript" src="/js/index.js" ></script>
+        <script type="text/javascript" src="/js/DataTransmission.js" ></script>
+    </body>
+
+
+</html>

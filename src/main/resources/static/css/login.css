@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: "微软雅黑";
+    background: url(../img/bg.png) no-repeat;
+    background-size: cover;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    background: white;
+    padding: 70px 50px;
+
+}
+
+.login h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login input {
+    width: 375px;
+    padding: 14px 20px 14px 40px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.login input:focus {
+    border: 1px solid #cccccc;
+}
+
+.login p {
+    position: relative;
+}
+
+#submit {
+    margin-top: 30px;
+    background: #7554bf;
+    color: #fff;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background: #6531bf;
+}
+
+.user {
+    background: url(../img/yonghuming.png);
+    width: 21px;
+    height: 23px;
+    display: inline-block;
+    position: absolute;
+    left: 9px;
+    top: 11px;
+}
+
+.password {
+    background: url(../img/mima.png);
+    width: 19px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    left: 9px;
+    top: 11px;
+}
+
+.reg {
+    height: 419px;
+    color: #ffffff;
+    background: url(../img/bg-login.png) no-repeat;
+    background-size: cover;
+    padding: 100px 50px;
+}
+
+.reg p {
+    margin-bottom: 50px;
+}
+
+.reg a {
+    color: #f3f3f3;
+    text-decoration: none;
+}
+
+.reg a:hover {
+    color: #ffffff;
+}
+
+.right {
+    background: url(../img/youjiantou.png);
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    top: 8px;
+    left: 4px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        display: block;
+        width: 100%;
+    }
+
+    .login {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .login input {
+        width: 100%;
+    }
+
+    .reg {
+        width: 100%;
+    }
+}
+
+.slidercaptcha {
+    margin: 0 auto;
+    width: 314px;
+    height: 286px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+    margin-top: 40px;
+}
+
+.slidercaptcha .card-body {
+    padding: 1rem;
+}
+
+.slidercaptcha canvas:first-child {
+    border-radius: 4px;
+    border: 1px solid #e6e8eb;
+}
+
+.slidercaptcha.card .card-header {
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.refreshIcon {
+    top: -54px;
+}

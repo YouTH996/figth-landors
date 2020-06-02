@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	 background: rgb(0, 112, 26);
+}
+a{
+	color: #C1E2B3;
+	cursor: pointer;
+}
+#container {
+	margin: auto;
+	width: 1000px;
+	height: 750px;
+	position: relative;
+}
+
+#center {
+	height: 500px;
+	width: 700px;
+	top: 10px;
+	text-align: center;
+	position: relative;
+	margin: auto;
+}
+
+#top {
+	text-align: center;
+	margin: auto;
+	width: 250px;
+	height: 100px;
+	line-height: 185px;
+}
+
+#right {
+	text-align: center;
+	width: 100px;
+	height: 500px;
+	position: absolute;
+	right: 0;
+}
+
+#left {
+	text-align: center;
+	width: 100px;
+	height: 500px;
+	position: absolute;
+	left: 0;
+}
+
+#bottom {
+	text-align: center;
+	margin: auto;
+	bottom: 0px;
+	left: 200px;
+	width: 600px;
+	height: 100px;
+	position: absolute;
+}
+
+#bottom img {
+	position: relative;
+}
+
+.desktop {
+	position: relative;
+	text-align: center;
+	margin: auto;
+	width: 500px;
+	height: 400px;
+}
+
+.select {
+	top: -10px;
+	border: 1px solid blue;
+	border-radius: 5px;
+	opacity: 0.9;
+}
+
+.desktopPocker {
+	border: 1px solid red;
+	border-radius: 5px;
+}
+
+.robotPocker{
+	position: absolute;
+}
+
+#center-left {
+	width: 30%;
+	height: 50%;
+	position: absolute;
+	top: 20%;
+}
+
+#center-buttom {
+	width: 50%;
+	height: 30%;
+	position: absolute;
+	bottom: 0px;
+	right: 25%;
+}
+
+#center-right {
+	width: 30%;
+	height: 50%;
+	position: absolute;
+	top: 20%;
+	right: 0px;
+}
+
+#desktop-center {
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	position: absolute;
+	top: 25%;
+	right: 42%;
+	font-size: 25px;
+	color:white;
+}
+
+#Landlord0, #Landlord2 {
+	line-height: 100px;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	width: 100px;
+	height: 100px;
+}
+
+#Landlord2 {
+	right: 0px;
+}
+
+#Landlord1 {
+	line-height: 100px;
+	text-align: center;
+	position: absolute;
+	left: 100px;
+	bottom: 0px;
+	width: 100px;
+	height: 100px;
+}
+
+/*游戏结束时调用*/
+#hidebg {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: #000;
+	width: 100%;
+	/*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+	filter: alpha(opacity = 60);
+	/*设置透明度为60%*/
+	opacity: 0.6;
+	/*非IE浏览器下设置透明度为60%*/
+	display: none;
+	/* http://www.jb51.net */
+	z-Index: 2;
+}
+
+#hidebox {
+	margin: auto;
+	font-size: 39px;
+	color: snow;
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	line-height: 100px;
+	top: 200px;
+	left: 45%;
+	display: none;
+	z-Index: 3;
+	}
+
+#content {
+	text-align: center;
+	cursor: pointer;
+	z-Index: 1;
+}
